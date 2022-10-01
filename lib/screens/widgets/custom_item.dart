@@ -1,6 +1,4 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_thirty_days/globals/app_colors.dart';
 import 'package:flutter_thirty_days/screens/widgets/custom_product.dart';
 
 class ListItem extends StatelessWidget {
@@ -9,14 +7,14 @@ class ListItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(18),
+      padding: const EdgeInsets.all(10),
       child: GridView.builder(
         itemCount: productLists.length,
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
           childAspectRatio: 0.75,
-          mainAxisExtent: 200.0,
-          crossAxisSpacing: 10.0,
+          crossAxisSpacing: 10,
+          mainAxisSpacing: 5,
         ),
         itemBuilder: (context, index) => ItemCard(
           product: productLists[index],
@@ -37,22 +35,28 @@ class ItemCard extends StatelessWidget {
     return Column(
       children: [
         Container(
-          padding: const EdgeInsets.all(8.0),
+          // height: 298,
+          // width: 190.0,
           decoration: BoxDecoration(
-            color: AppColors.blue,
+            color: product.color,
             borderRadius: BorderRadius.circular(20),
           ),
-          child: Image.asset(
-            product.image,
-            height: 130,
-            width: 130,
+          child: Column(
+            children: [
+              Image.asset(
+                product.image,
+              ),
+              Text(
+                product.title,
+                style: const TextStyle(),
+              ),
+              Text("\PKR  ${product.price}"),
+              const SizedBox(
+                height: 10,
+              )
+            ],
           ),
         ),
-        Text(
-          product.title,
-          style: const TextStyle(fontWeight: FontWeight.bold),
-        ),
-        Text("\$${product.price}")
       ],
     );
   }

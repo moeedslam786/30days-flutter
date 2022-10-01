@@ -21,9 +21,9 @@ class Myapp extends StatelessWidget {
       darkTheme: Mytheme.darkTheme(context),
       debugShowCheckedModeBanner: false,
       routes: {
-        "/": (context) => HomePage(),
+        "/": (context) => const HomePage(),
         Myroutes.signin: (context) => const SignIn(),
-        Myroutes.homePage: (context) => HomePage(),
+        Myroutes.homePage: (context) => const HomePage(),
         Myroutes.forgetPassword: (context) => const ForgetPassword(),
         Myroutes.signup: (context) => const SignUp(),
       },
